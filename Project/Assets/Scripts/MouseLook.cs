@@ -10,17 +10,29 @@ public class MouseLook : MonoBehaviour
     private float yRotation = 0f;
     public GameObject cameraPivot = null;
 
+    bool isMK;
+
+    private void Start()
+    {
+        isMK = FindObjectOfType<InputType>().MK;
+    }
+
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime; // gets mouse x and y input
+        isMK = FindObjectOfType<InputType>().MK;
 
-        xRotation -= mouseY; // up down
-        yRotation += mouseX; // left right
+        if (isMK)
+        {
+            float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+            float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime; // gets mouse x and y input
 
-        xRotation = Mathf.Clamp(xRotation, -72, 72);
+            xRotation -= mouseY; // up down
+            yRotation += mouseX; // left right
 
-        cameraPivot.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f); // rotates camera up and down
-        playerBody.transform.localRotation = Quaternion.Euler(0f, yRotation, 0f); // rotates player left and right
+            xRotation = Mathf.Clamp(xRotation, -72, 72);
+
+            cameraPivot.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f); // rotates camera up and down
+            playerBody.transform.localRotation = Quaternion.Euler(0f, yRotation, 0f); // rotates player left and right
+        }
     }
 }

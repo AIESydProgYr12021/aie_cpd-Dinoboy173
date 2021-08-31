@@ -15,9 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float gravity = -9.81f;
 
-    public float jump1Height = 1.5f;
-    public float jump2Height = 2f;
-    public float jump3Height = 2.5f;
+    public Dictionary<int, float> jumpHeight = new Dictionary<int, float>();
 
     public float maxAcceleration = 0.8f;
     public float acceleration = 0.6f;
@@ -35,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
 
     float movingX;
     float movingZ;
+    bool movingY;
 
     float xAcc;
     float zAcc;
@@ -51,14 +50,25 @@ public class PlayerMovement : MonoBehaviour
     bool isGrounded;
     bool isGroundedLastFrame;
 
+    bool isMK;
+
     private void Start()
     {
         dustRun.Stop();
         dustLand.Stop(); // safety check if particales are running
+
+        isMK = FindObjectOfType<InputType>().MK;
+
+        jumpHeight.Add(0, 1.5f);
+        jumpHeight.Add(1, 2f);
+        jumpHeight.Add(2, 2.5f); // different jump heights
     }
+
 
     void Update()
     {
+        isMK = FindObjectOfType<InputType>().MK;
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); // if player is on ground
 
         if (isGrounded && !isGroundedLastFrame) // Things to play when hit the ground
@@ -71,8 +81,12 @@ public class PlayerMovement : MonoBehaviour
             dustRun.Play();
         }
 
-        movingX = Input.GetAxis("Horizontal");
-        movingZ = Input.GetAxis("Vertical");    // mouse x and y input
+        if (isMK)
+        {
+            movingX = Input.GetAxis("Horizontal");
+            movingZ = Input.GetAxis("Vertical"); // keyboard x and z input
+            movingY = Input.GetButtonDown("Jump"); // keyboard y input
+        }
 
         MovePlayer();
 
@@ -105,7 +119,7 @@ public class PlayerMovement : MonoBehaviour
 
         fall += num;
 
-          return fall;
+        return fall;
     }
 
     void MovePlayer()
@@ -213,7 +227,7 @@ public class PlayerMovement : MonoBehaviour
 
         move = transform.right * x + transform.forward * z; // adds x and z into movement vector
 
-        controller.Move(move * speed * Time.deltaTime); // moves player
+        controller.Move(move * speed * Time.deltaTime); // moves player on x and z
 
         if (footstepTimer > 0) // time between footsteps
         {
@@ -235,52 +249,39 @@ public class PlayerMovement : MonoBehaviour
             speed = defaultSpeed;
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded) // is jump and is grounded?
+        if (movingY && isGrounded) // is jump and is grounded?
         {
-            if (jumps == 0 || jumps >= maxJumps) // can do jump 1?
-            {
-                velocity.y = Mathf.Sqrt(jump1Height * -2 * gravity); // 
+            velocity.y = Mathf.Sqrt(jumpHeight[jumps] * -2 * gravity); // math for jump
 
-                speed += speedBoost;
-            }
-            else if (jumps == 1)
-            {
-                velocity.y = Mathf.Sqrt(jump2Height * -2 * gravity);
-
-                speed += speedBoost;
-            }
-            else if (jumps == 2)
-            {
-                velocity.y = Mathf.Sqrt(jump3Height * -2 * gravity);
-            }
+            speed += speedBoost;
 
             jumps += 1;
             jumpTimer = jumpTimerReset;
         }
 
-        if (!isGrounded)
+        if (!isGrounded) // give the player gravity when in the air
         {
             velocity.y += gravity * Time.deltaTime;
         }
 
-        if (isGrounded && velocity.y < 0)
+        if (isGrounded && velocity.y < 0) // stops gravity accumulating when on ground
         {
             velocity.y = -2f;
         }
 
-        controller.Move(velocity * Time.deltaTime);
+        controller.Move(velocity * Time.deltaTime); // moves player on the y axis
         // end vertical movement ----------------------------------------------------------------------------------------------------
     }
 
     void PlayFootstep()
     {
-        if (footstepTimer <= 0f && isGrounded)
+        if (footstepTimer <= 0f && isGrounded) // play sound if timer is done and is on ground
         {
-            FindObjectOfType<AudioManager>().Play(RandomFootStep());
-            footstepTimer = footstepTimerReset;
+            FindObjectOfType<AudioManager>().Play(RandomFootStep()); // play footstep sound
+            footstepTimer = footstepTimerReset; // reset timer
         }
 
-        if (!isGrounded)
+        if (!isGrounded) // stop playing if in air
         {
             FindObjectOfType<AudioManager>().Stop();
         }

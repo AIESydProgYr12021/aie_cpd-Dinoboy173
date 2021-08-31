@@ -13,6 +13,11 @@ public class TimerScript : MonoBehaviour
     int secondsLength = 0;
     int additionZeros = 0;
 
+    private void Start()
+    {
+        float t = startTime;
+    }
+
     void Update()
     {
         float t = startTime - Time.time;

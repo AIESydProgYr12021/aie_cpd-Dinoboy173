@@ -647,6 +647,7 @@ MonoBehaviour:
     m_Bits: 8
   jumpTimer: 0.5
   jumpTimerReset: 0.5
+  velocity: {x: 0, y: 0, z: 0}
 --- !u!1 &4587582572058232225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2208,7 +2209,6 @@ GameObject:
   - component: {fileID: 4587582573255407952}
   - component: {fileID: 4587582573255407967}
   - component: {fileID: 4587582573255407954}
-  - component: {fileID: 4587582573255407955}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2296,18 +2296,6 @@ MonoBehaviour:
   mouseSensitivity: 150
   playerBody: {fileID: 4587582572058007663}
   cameraPivot: {fileID: 4587582573207405939}
---- !u!114 &4587582573255407955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4587582573255407966}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec1d05afe9cf3e6468deb3121ed385a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1001072515491671269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2452,13 +2440,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f82ca7025d822c242b8b4cf81630ce82, type: 3}
---- !u!4 &8540866704429486008 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6646800266657476760, guid: f82ca7025d822c242b8b4cf81630ce82, type: 3}
-  m_PrefabInstance: {fileID: 3078611273868132128}
-  m_PrefabAsset: {fileID: 0}
 --- !u!198 &8540866704429486009 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 6646800266657476761, guid: f82ca7025d822c242b8b4cf81630ce82, type: 3}
+  m_PrefabInstance: {fileID: 3078611273868132128}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8540866704429486008 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6646800266657476760, guid: f82ca7025d822c242b8b4cf81630ce82, type: 3}
   m_PrefabInstance: {fileID: 3078611273868132128}
   m_PrefabAsset: {fileID: 0}
