@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
     int jumps = 0;
     int maxJumps = 3;
 
-    Vector3 velocity;
+    public Vector3 velocity;
     Vector3 move;
 
     bool isGrounded;
@@ -54,20 +54,14 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         dustRun.Stop();
-        dustLand.Stop();
+        dustLand.Stop(); // safety check if particales are running
     }
 
-    // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); // if player is on ground
 
-        if (isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
-
-        if (isGrounded && !isGroundedLastFrame)
+        if (isGrounded && !isGroundedLastFrame) // Things to play when hit the ground
         {
             dustLand.Play();
 
@@ -78,26 +72,26 @@ public class PlayerMovement : MonoBehaviour
         }
 
         movingX = Input.GetAxis("Horizontal");
-        movingZ = Input.GetAxis("Vertical");
+        movingZ = Input.GetAxis("Vertical");    // mouse x and y input
 
         MovePlayer();
 
         if (movingZ != 1f && isGrounded)
         {
-            dustRun.Play();
+            dustRun.Play(); // play dust particles when on the ground and moving forward
         }
         else if (!isGrounded)
         {
-            dustRun.Stop();
+            dustRun.Stop(); // if not on ground and moving forward stop dust particles
         }
 
-        isGroundedLastFrame = isGrounded;
+        isGroundedLastFrame = isGrounded; // stores weather or not is on ground this frame to be used next frame
     }
 
     string RandomFootStep()
     {
         string FootstepSound = "FootStep";
-        int num = (int)Random.Range(1f, 8.9f);
+        int num = (int)Random.Range(1f, 8.9f); // chooses a random footstep sound from 8
 
         FootstepSound += num;
 
@@ -107,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
     string RandomFall()
     {
         string fall = "Fall";
-        int num = (int)Random.Range(1f, 2.9f);
+        int num = (int)Random.Range(1f, 2.9f); // chooses random hit ground sound from 2
 
         fall += num;
 
@@ -118,110 +112,110 @@ public class PlayerMovement : MonoBehaviour
     {
         // start horizontal movement ----------------------------------------------------------------------------------------------------
         // forward
-        if (movingZ < 0)
+        if (movingZ > 0) // is being moved forward by player?
         {
-            if (zAcc <= maxAcceleration)
-            {
-                zAcc += acceleration * Time.deltaTime;
-
-                PlayFootstep();
-            }
-            else
-            {
-                zAcc = maxAcceleration;
-            }
-        }
-        else if (zAcc > 0)
-        {
-            if (isGrounded)
-            {
-                zAcc -= drag * Time.deltaTime;
-            }
-        }
-
-        // backward
-        if (movingZ > 0)
-        {
-            if (zAcc >= -maxAcceleration)
+            if (zAcc <= maxAcceleration) // is z acceleration less than max acceleration?
             {
                 zAcc -= acceleration * Time.deltaTime;
 
                 PlayFootstep();
             }
-            else
+            if (zAcc < -maxAcceleration) // is z acceleration greater than max acceleration?
             {
                 zAcc = -maxAcceleration;
             }
         }
-        else if (zAcc < 0)
+        else if (zAcc < 0) // is being moved forward by acceleration?
         {
-            if (isGrounded)
+            if (isGrounded) // is on ground?
             {
-                zAcc += drag * Time.deltaTime;
+                zAcc += drag * Time.deltaTime; // slow down
+            }
+        }
+
+        // backward
+        if (movingZ < 0) // is being moved backward by player?
+        {
+            if (zAcc >= -maxAcceleration)// is z acceleration less than max acceleration?
+            {
+                zAcc += acceleration * Time.deltaTime;
+
+                PlayFootstep();
+            }
+            if (zAcc > maxAcceleration) // is z acceleration greater than max acceleration?
+            {
+                zAcc = maxAcceleration;
+            }
+        }
+        else if (zAcc > 0) // is being moved backward by acceleration?
+        {
+            if (isGrounded) // is on ground?
+            {
+                zAcc -= drag * Time.deltaTime; // slow down
             }
         }
 
         // left
-        if (movingX > 0)
+        if (movingX < 0) // is being moved left be player?
         {
-            if (xAcc >= -maxAcceleration)
-            {
-                xAcc -= acceleration * Time.deltaTime;
-
-                PlayFootstep();
-            }
-            else
-            {
-                xAcc = -maxAcceleration;
-            }
-        }
-        else if (xAcc < 0)
-        {
-            if (isGrounded)
-            {
-                xAcc += drag * Time.deltaTime;
-            }
-        }
-
-        // right
-        if (movingX < 0)
-        {
-            if (xAcc <= maxAcceleration)
+            if (xAcc >= -maxAcceleration) // is x acceleration less than max acceleration?
             {
                 xAcc += acceleration * Time.deltaTime;
 
                 PlayFootstep();
             }
-            else
+            if (xAcc > maxAcceleration) // is x acceleration less than max acceleration?
             {
                 xAcc = maxAcceleration;
             }
         }
-        else if (xAcc > 0)
+        else if (xAcc > 0) // is being moved left by acceleration?
         {
-            if (isGrounded)
+            if (isGrounded) // is on ground?
             {
-                xAcc -= drag * Time.deltaTime;
+                xAcc -= drag * Time.deltaTime; // slow down
             }
         }
 
-        if (isGrounded)
+        // right
+        if (movingX > 0) // is being moved right by player?
         {
-            if (zAcc <= 0.1f && zAcc >= -0.1f)
-                zAcc = 0;
+            if (xAcc <= maxAcceleration) // is x acceleration less than max acceleration?
+            {
+                xAcc -= acceleration * Time.deltaTime;
 
-            if (xAcc <= 0.1f && xAcc >= -0.1f)
+                PlayFootstep();
+            }
+            if (xAcc < -maxAcceleration) // is x acceleration greater than max acceleration?
+            {
+                xAcc = -maxAcceleration;
+            }
+        }
+        else if (xAcc < 0) // is being moved by acceleration?
+        {
+            if (isGrounded) // is on ground?
+            {
+                xAcc += drag * Time.deltaTime; // slow down
+            }
+        }
+
+        if (isGrounded) // set to 0 if in small enough range and if on ground
+        {
+            if (zAcc <= 0.01f && zAcc >= -0.01f)
+                zAcc = 0;
+        
+            if (xAcc <= 0.01f && xAcc >= -0.01f) 
                 xAcc = 0;
         }
 
         x = movingX - xAcc;
-        z = movingZ - zAcc;
+        z = movingZ - zAcc; // adds acceleration to the x and z
 
-        move = transform.right * x + transform.forward * z;
+        move = transform.right * x + transform.forward * z; // adds x and z into movement vector
 
-        controller.Move(move * speed * Time.deltaTime);
+        controller.Move(move * speed * Time.deltaTime); // moves player
 
-        if (footstepTimer > 0)
+        if (footstepTimer > 0) // time between footsteps
         {
             footstepTimer -= 0.1f * Time.deltaTime;
         }
@@ -229,24 +223,23 @@ public class PlayerMovement : MonoBehaviour
 
 
         // start vertical movement ----------------------------------------------------------------------------------------------------
-
-        if (isGrounded && jumpTimer > 0)
+        if (isGrounded && jumpTimer > 0 && jumps > 0) // time before jumps resets
         {
             jumpTimer -= 1f * Time.deltaTime;
         }
 
-        if (jumpTimer <= 0 || jumps >= maxJumps)
+        if (jumpTimer <= 0 || jumps >= maxJumps) // resets jumps and speed
         {
             jumps = 0;
 
             speed = defaultSpeed;
         }
 
-        if (Input.GetButtonDown("Jump") && isGrounded)
+        if (Input.GetButtonDown("Jump") && isGrounded) // is jump and is grounded?
         {
-            if (jumps == 0 || jumps >= maxJumps)
+            if (jumps == 0 || jumps >= maxJumps) // can do jump 1?
             {
-                velocity.y = Mathf.Sqrt(jump1Height * -2 * gravity);
+                velocity.y = Mathf.Sqrt(jump1Height * -2 * gravity); // 
 
                 speed += speedBoost;
             }
@@ -265,7 +258,15 @@ public class PlayerMovement : MonoBehaviour
             jumpTimer = jumpTimerReset;
         }
 
-        velocity.y += gravity * Time.deltaTime;
+        if (!isGrounded)
+        {
+            velocity.y += gravity * Time.deltaTime;
+        }
+
+        if (isGrounded && velocity.y < 0)
+        {
+            velocity.y = -2f;
+        }
 
         controller.Move(velocity * Time.deltaTime);
         // end vertical movement ----------------------------------------------------------------------------------------------------

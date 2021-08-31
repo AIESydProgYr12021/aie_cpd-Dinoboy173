@@ -6,7 +6,6 @@ public class GameCursor : MonoBehaviour
 {
     Canvas canvas = null;
 
-    // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
@@ -14,16 +13,15 @@ public class GameCursor : MonoBehaviour
         canvas = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (canvas.enabled == true)
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Locked; // if GUI is enabled lock cursor
         }
         else
         {
-            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.lockState = CursorLockMode.Confined; // if GUI isn't enabled confine cursor
         }
     }
 }

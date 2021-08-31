@@ -23,7 +23,7 @@ public class TimerScript : MonoBehaviour
             secondsLength = seconds.Length;
             additionZeros = 3 - secondsLength;
 
-            for (int i = 0; i < additionZeros; i++)
+            for (int i = 0; i < additionZeros; i++) // adds the amount of 0s needed to make the seconds 3 digits
             {
                 seconds = "0" + seconds;
             }
