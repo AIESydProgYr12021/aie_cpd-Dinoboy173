@@ -9,12 +9,24 @@ public class TimerScript : MonoBehaviour
     public TextMeshProUGUI timerText;
     public float startTime = 300f;
 
+    string seconds = "";
+    int secondsLength = 0;
+    int additionZeros = 0;
+
     void Update()
     {
         float t = startTime - Time.time;
         if (t > 0)
         {
-            string seconds = (t).ToString("f0");
+            seconds = (t).ToString("f0");
+
+            secondsLength = seconds.Length;
+            additionZeros = 3 - secondsLength;
+
+            for (int i = 0; i < additionZeros; i++)
+            {
+                seconds = "0" + seconds;
+            }
 
             timerText.text = seconds;
         }
