@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
         virtualJump = FindObjectOfType<JumpScript>().jump;
 
+        // boolHere = NameOfScript . NameOfBool
         isMK = FindObjectOfType<InputType>().MK;
         isTouch = FindObjectOfType<InputType>().touch;
 

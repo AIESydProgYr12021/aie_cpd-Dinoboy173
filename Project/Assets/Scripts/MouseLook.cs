@@ -38,7 +38,7 @@ public class MouseLook : MonoBehaviour
         if (isTouch)
         {
             mouseX = joystick.Direction.x;
-            mouseY = -joystick.Direction.z;
+            mouseY = joystick.Direction.z;
         }
 
         xRotation -= mouseY; // up down
