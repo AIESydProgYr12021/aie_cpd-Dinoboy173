@@ -37,7 +37,7 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler, IPointerUpHandler, I
 
             // clamp values
             float x = Mathf.Clamp(pos.x, -1, 1);
-            float y = Mathf.Clamp(pos.y, -1, 1);
+            float y = Mathf.Clamp(-1, pos.y, 1);
             direction = new Vector3(x, 0, y).normalized;
 
             // move the visual to reflect the inputs

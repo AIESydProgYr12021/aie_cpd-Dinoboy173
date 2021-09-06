@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public ParticleSystem dustRun;
     public ParticleSystem dustLand;
 
+    public VirtualJoystick joystick;
+
     public float speed = 5.2f;
     public float speedBoost = 0.4f;
     public float defaultSpeed = 5.2f;
@@ -28,8 +30,8 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-    float x;
-    float z;
+    public float x;
+    public float z;
 
     float movingX;
     float movingZ;
@@ -39,35 +41,41 @@ public class PlayerMovement : MonoBehaviour
     float zAcc;
 
     public float jumpTimer = 0.0f;
-    public float jumpTimerReset = 0.5f;
+    public float jumpTimerReset = 0.7f;
 
-    int jumps = 0;
+    public int jumps = 0;
     int maxJumps = 3;
 
-    public Vector3 velocity;
+    Vector3 velocity;
     Vector3 move;
 
     bool isGrounded;
     bool isGroundedLastFrame;
 
+    bool virtualJump;
+
     bool isMK;
+    bool isTouch;
 
     private void Start()
     {
         dustRun.Stop();
         dustLand.Stop(); // safety check if particales are running
 
+        virtualJump = FindObjectOfType<JumpScript>().jump;
+
         isMK = FindObjectOfType<InputType>().MK;
+        isTouch = FindObjectOfType<InputType>().touch;
 
         jumpHeight.Add(0, 1.5f);
         jumpHeight.Add(1, 2f);
         jumpHeight.Add(2, 2.5f); // different jump heights
     }
 
-
     void Update()
     {
         isMK = FindObjectOfType<InputType>().MK;
+        isTouch = FindObjectOfType<InputType>().touch;
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); // if player is on ground
 
@@ -86,6 +94,15 @@ public class PlayerMovement : MonoBehaviour
             movingX = Input.GetAxis("Horizontal");
             movingZ = Input.GetAxis("Vertical"); // keyboard x and z input
             movingY = Input.GetButtonDown("Jump"); // keyboard y input
+        }
+
+        if (isTouch)
+        {
+            virtualJump = FindObjectOfType<JumpScript>().jump;
+
+            movingX = joystick.Direction.x;
+            movingZ = joystick.Direction.z; // touch x and z input
+            movingY = virtualJump;
         }
 
         MovePlayer();
