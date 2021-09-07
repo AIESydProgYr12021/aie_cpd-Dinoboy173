@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
-
+    public CoinCount coinCounter;
 
     public float rotationSpeed = 15f;
     float yRotation = 0f;
@@ -37,6 +37,6 @@ public class CoinScript : MonoBehaviour
     {
         Destroy(gameObject);
 
-
+        coinCounter.coinsCollected += 1;
     }
 }

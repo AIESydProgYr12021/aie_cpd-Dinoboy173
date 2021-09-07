@@ -388,17 +388,9 @@ PrefabInstance:
       value: Coin
       objectReference: {fileID: 0}
     - target: {fileID: 2211180805824516498, guid: 9948757fcabd23d4280f7264da08e345, type: 3}
-      propertyPath: bobRange
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 2211180805824516498, guid: 9948757fcabd23d4280f7264da08e345, type: 3}
-      propertyPath: bobSpeed
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2211180805824516498, guid: 9948757fcabd23d4280f7264da08e345, type: 3}
-      propertyPath: rotationSpeed
-      value: 15
-      objectReference: {fileID: 0}
+      propertyPath: coinCounter
+      value: 
+      objectReference: {fileID: 578387489}
     - target: {fileID: 4536552962530291065, guid: 9948757fcabd23d4280f7264da08e345, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -590,6 +582,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ee7c51688bb54664f8e4b068e2eab22b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &578387489 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1433116502549417856, guid: ec5090dd4cb82974fa5f3bc354a71b3e, type: 3}
+  m_PrefabInstance: {fileID: 1588785583}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c68a13300ad118b4796e647bc031047f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1001 &620954611
@@ -1382,6 +1385,10 @@ PrefabInstance:
       propertyPath: timerText
       value: 
       objectReference: {fileID: 866628639}
+    - target: {fileID: 1433116502549417856, guid: ec5090dd4cb82974fa5f3bc354a71b3e, type: 3}
+      propertyPath: coinsCollected
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2533413258135377841, guid: ec5090dd4cb82974fa5f3bc354a71b3e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

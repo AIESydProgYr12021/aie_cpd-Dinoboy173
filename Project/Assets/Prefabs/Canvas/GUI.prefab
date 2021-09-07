@@ -2017,6 +2017,7 @@ GameObject:
   - component: {fileID: 2546850337954893085}
   - component: {fileID: 9177283452434903178}
   - component: {fileID: 6601813494523870830}
+  - component: {fileID: 1433116502549417856}
   m_Layer: 5
   m_Name: Coins
   m_TagString: Untagged
@@ -2140,6 +2141,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1433116502549417856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8682897149325284376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c68a13300ad118b4796e647bc031047f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinsText: {fileID: 6601813494523870830}
+  coinsCollected: 0
 --- !u!1001 &1913894246115822784
 PrefabInstance:
   m_ObjectHideFlags: 0
