@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CoinScript : MonoBehaviour
 {
+
+
     public float rotationSpeed = 15f;
     float yRotation = 0f;
 
@@ -29,5 +31,12 @@ public class CoinScript : MonoBehaviour
         {
             bobSpeed = -bobSpeed;
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Destroy(gameObject);
+
+
     }
 }

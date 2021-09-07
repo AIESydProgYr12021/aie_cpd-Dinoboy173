@@ -1,4 +1,4 @@
-# PROJECT NAME
+# Oiram
 
 ## About the Game
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
@@ -7,10 +7,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 Contributors to the project are strictly limated to AIE Students as part of their group work project.
 
 Members (example):
- - John Doe: designer
- - John Smith: programmer
- - Sandra Dee: artist
-
+ - Jordan Wesson (Programer)
 
 ## Build Steps:
 The project can currently be built for both windows and webgl in the following ways:
@@ -34,8 +31,7 @@ The project can currently be built for both windows and webgl in the following w
 Daily builds of the project should be placed on the local campus network drive
 
 
+Web - https://aiesydprogyr12021.github.io/aie_cpd-Dinoboy173/
 
 # Credits:
  Are there assets, sounds or media included within the project that require attributation? list them here:
-
-https://aiesydprogyr12021.github.io/aie_cpd-Dinoboy173/
