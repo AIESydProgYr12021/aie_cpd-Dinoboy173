@@ -10,19 +10,19 @@ public class GameCursor : MonoBehaviour
 
     void Start()
     {
-        isMK = FindObjectOfType<InputType>().MK;
+        isMK = FindObjectOfType<InputType>().MK; // gets bool from another script
 
-        if (isMK)
+        if (isMK) // locks cursor to screen if mouse and keyboard controls
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-        canvas = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>();
+        canvas = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>(); // gets canvas
     }
 
     void Update()
     {
-        isMK = FindObjectOfType<InputType>().MK;
+        isMK = FindObjectOfType<InputType>().MK; // gets bool from another script
 
         if (isMK)
         {

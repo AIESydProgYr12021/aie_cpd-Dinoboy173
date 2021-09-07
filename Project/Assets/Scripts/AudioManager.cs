@@ -8,10 +8,9 @@ public class AudioManager : MonoBehaviour
 
     Sound s = null;
 
-    // Start is called before the first frame update
     void Awake()
     {
-        foreach (Sound s in sounds)
+        foreach (Sound s in sounds) // sets source sounds variables
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -23,13 +22,13 @@ public class AudioManager : MonoBehaviour
 
     public void Play(string name)
     {
-        s = Array.Find(sounds, sound => sound.name == name);
+        s = Array.Find(sounds, sound => sound.name == name); // gets specific sound from array
 
-        s.source.Play();
+        s.source.Play(); // plays sound
     }
 
     public void Stop()
     {
-        s.source.Stop();
+        s.source.Stop(); // stops sound
     }
 }

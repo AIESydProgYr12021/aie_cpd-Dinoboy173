@@ -6,6 +6,6 @@ public class LockCursor : MonoBehaviour
 {
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.lockState = CursorLockMode.Confined; // confines cursor to screen when in menu
     }
 }

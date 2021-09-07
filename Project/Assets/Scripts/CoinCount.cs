@@ -16,11 +16,11 @@ public class CoinCount : MonoBehaviour
     {
         coinCounter = (coinsCollected).ToString();
 
-        if (coinsCollected < 10)
+        if (coinsCollected < 10) // adds '0's if single digit
         {
             coinCounter = "0" + coinCounter;
         }
 
-        coinsText.text = coinCounter;
+        coinsText.text = coinCounter; // sets text
     }
 }

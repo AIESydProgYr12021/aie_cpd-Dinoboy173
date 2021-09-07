@@ -16,18 +16,18 @@ public class CoinScript : MonoBehaviour
 
     void Start()
     {
-        yOrigin = transform.position.y;
+        yOrigin = transform.position.y; // get starting position
     }
 
     void Update()
     {
-        yRotation += rotationSpeed * Time.deltaTime;
-        transform.localRotation = Quaternion.Euler(0f, yRotation, 90f);
+        yRotation += rotationSpeed * Time.deltaTime; // add rotation
+        transform.localRotation = Quaternion.Euler(0f, yRotation, 90f); // apply rotation
 
-        posChange = transform.right * bobSpeed;
-        transform.localPosition += posChange * Time.deltaTime;
+        posChange = transform.right * bobSpeed; // adds movement
+        transform.localPosition += posChange * Time.deltaTime; // applys movement
 
-        if (transform.localPosition.y <= (yOrigin - bobRange) || transform.localPosition.y >= (yOrigin + bobRange))
+        if (transform.localPosition.y <= (yOrigin - bobRange) || transform.localPosition.y >= (yOrigin + bobRange)) // changes direction
         {
             bobSpeed = -bobSpeed;
         }
@@ -35,8 +35,9 @@ public class CoinScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject);
+        Destroy(gameObject); // deletes object
+        coinCounter.coinsCollected += 1; // adds to counter
 
-        coinCounter.coinsCollected += 1;
+        // play sound
     }
 }

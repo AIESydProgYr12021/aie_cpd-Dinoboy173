@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class JumpScript : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
+    // controls weather or not the player is jumping on touch
     public bool jump = false;
 
     public void OnPointerDown(PointerEventData eventData)

@@ -64,9 +64,8 @@ public class PlayerMovement : MonoBehaviour
 
         virtualJump = FindObjectOfType<JumpScript>().jump;
 
-        // boolHere = NameOfScript . NameOfBool
         isMK = FindObjectOfType<InputType>().MK;
-        isTouch = FindObjectOfType<InputType>().touch;
+        isTouch = FindObjectOfType<InputType>().touch; // gets bool from another script
 
         jumpHeight.Add(0, 1.5f);
         jumpHeight.Add(1, 2f);
@@ -76,7 +75,7 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         isMK = FindObjectOfType<InputType>().MK;
-        isTouch = FindObjectOfType<InputType>().touch;
+        isTouch = FindObjectOfType<InputType>().touch; // gets bools from another script
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); // if player is on ground
 
@@ -122,22 +121,22 @@ public class PlayerMovement : MonoBehaviour
 
     string RandomFootStep()
     {
-        string FootstepSound = "FootStep";
+        string FootstepSound = "FootStep"; // the worded name of the footstep sound without its number - needs to change if naming convention changes
         int num = (int)Random.Range(1f, 8.9f); // chooses a random footstep sound from 8
 
-        FootstepSound += num;
+        FootstepSound += num; // adds the number to the string to get a footstep sound
 
         return FootstepSound;
     }
 
     string RandomFall()
     {
-        string fall = "Fall";
+        string landing = "Landing"; // the worded name of the laning sound without its number - needs to change if naming convention changes
         int num = (int)Random.Range(1f, 2.9f); // chooses random hit ground sound from 2
 
-        fall += num;
+        landing += num; // adds the number to the string to get a landin sound
 
-        return fall;
+        return landing;
     }
 
     void MovePlayer()

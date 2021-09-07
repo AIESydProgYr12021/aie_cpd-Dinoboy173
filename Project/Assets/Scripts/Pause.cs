@@ -8,52 +8,52 @@ public class Pause : MonoBehaviour
 
     private void Start()
     {
-        Time.timeScale = 1;
+        Time.timeScale = 1; // safe check set time to play
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape)) // is escape pressed
         {
-            canvas = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>();
+            canvas = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>(); // get game canvas
 
-            if (canvas.enabled == true)
+            if (canvas.enabled == true) // if game canvas is showing
             {
-                canvas = null;
+                canvas = null; // clear selected canvas
 
                 Debug.Log("Pause");
 
-                Time.timeScale = 0;
+                Time.timeScale = 0; // pause time
 
-                canvas = GetComponentInParent<Canvas>();
-                canvas.enabled = false;
+                canvas = GetComponentInParent<Canvas>(); // get current canvas
+                canvas.enabled = false; // disable canvas
 
-                canvas = GameObject.FindGameObjectWithTag("Pause").GetComponent<Canvas>();
+                canvas = GameObject.FindGameObjectWithTag("Pause").GetComponent<Canvas>(); // get pause canvas
 
-                if (canvas == null)
+                if (canvas == null) // safe check
                 {
                     Debug.Log("Canvas Not Found");
                 }
 
-                canvas.enabled = true;
+                canvas.enabled = true; // enable canvas
             }
-            else
+            else // if game canvas is not showing
             {
                 Debug.Log("Game");
 
-                Time.timeScale = 1;
+                Time.timeScale = 1; // resume time
 
-                canvas = GameObject.FindGameObjectWithTag("Pause").GetComponent<Canvas>();
-                canvas.enabled = false;
+                canvas = GameObject.FindGameObjectWithTag("Pause").GetComponent<Canvas>(); // get pause canvas
+                canvas.enabled = false; // disable canvas
                 
-                canvas = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>();
+                canvas = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>(); // get game canvas
 
                 if (canvas == null)
                 {
                     Debug.Log("Canvas Not Found");
                 }
 
-                canvas.enabled = true;
+                canvas.enabled = true; // enables canvas
             }
         }
     }

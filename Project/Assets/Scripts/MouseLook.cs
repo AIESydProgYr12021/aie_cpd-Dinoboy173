@@ -23,13 +23,13 @@ public class MouseLook : MonoBehaviour
     private void Start()
     {
         isMK = FindObjectOfType<InputType>().MK;
-        isTouch = FindObjectOfType<InputType>().touch;
+        isTouch = FindObjectOfType<InputType>().touch; // gets bool from another script
     }
 
     void Update()
     {
         isMK = FindObjectOfType<InputType>().MK;
-        isTouch = FindObjectOfType<InputType>().touch;
+        isTouch = FindObjectOfType<InputType>().touch; // gets bools from another script
 
         if (isMK)
         {
@@ -37,10 +37,10 @@ public class MouseLook : MonoBehaviour
             mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime; // gets mouse x and y input
         }
 
-        if (isTouch)
+        if (isTouch) 
         {
             mouseX = joystick.Direction.x * touchTurnSpeed;
-            mouseY = -joystick.Direction.z * touchTurnSpeed;
+            mouseY = -joystick.Direction.z * touchTurnSpeed; // touch x and y input
         }
 
         xRotation -= mouseY; // up down
