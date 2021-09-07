@@ -13,6 +13,8 @@ public class MouseLook : MonoBehaviour
     float mouseX = 0f;
     float mouseY = 0f;
 
+    public float touchTurnSpeed = 2f;
+
     public VirtualJoystick joystick;
 
     bool isMK;
@@ -37,8 +39,8 @@ public class MouseLook : MonoBehaviour
 
         if (isTouch)
         {
-            mouseX = joystick.Direction.x;
-            mouseY = joystick.Direction.z;
+            mouseX = joystick.Direction.x * touchTurnSpeed;
+            mouseY = -joystick.Direction.z * touchTurnSpeed;
         }
 
         xRotation -= mouseY; // up down
