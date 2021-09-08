@@ -46,3 +46,5 @@ Web - https://aiesydprogyr12021.github.io/aie_cpd-Dinoboy173/
 						https://opengameart.org/content/casino-man
 						https://opengameart.org/content/shopping-theme
 						https://opengameart.org/content/shop-theme
+
+ - Coins - 					https://opengameart.org/content/coin-sounds-0

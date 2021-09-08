@@ -83,16 +83,11 @@ public class Buttons : MonoBehaviour
 
     public void LevelSelectLevel()
     {
-        string button = EventSystem.current.currentSelectedGameObject.name;
+        string levelName = EventSystem.current.currentSelectedGameObject.name;
 
-        if (button == null)
-        {
-            Debug.Log("Not Found");
-        }
+        Debug.Log(levelName);
 
-        Debug.Log(button);
-
-        SceneManager.LoadScene(sceneName: button);
+        SceneManager.LoadScene(sceneName: levelName);
     }
 
     public void GamePause()
@@ -113,12 +108,5 @@ public class Buttons : MonoBehaviour
         }
 
         canvas.enabled = true;
-    }
-
-    public void Test()
-    {
-        Debug.Log("Test");
-
-        SceneManager.LoadScene(sceneName: "test");
     }
 }

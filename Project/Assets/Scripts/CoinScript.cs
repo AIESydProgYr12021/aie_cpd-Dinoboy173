@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class CoinScript : MonoBehaviour
 {
-    public CoinCount coinCounter;
-
     public float rotationSpeed = 15f;
     float yRotation = 0f;
 
@@ -16,12 +16,12 @@ public class CoinScript : MonoBehaviour
 
     void Start()
     {
-        yOrigin = transform.position.y; // get starting position
+        yOrigin = transform.position.y;
     }
 
     void Update()
     {
-        yRotation += rotationSpeed * Time.deltaTime; // add rotation
+        yRotation += rotationSpeed * Time.deltaTime;
         transform.localRotation = Quaternion.Euler(0f, yRotation, 90f); // apply rotation
 
         posChange = transform.right * bobSpeed; // adds movement
@@ -35,9 +35,19 @@ public class CoinScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Destroy(gameObject); // deletes object
-        coinCounter.coinsCollected += 1; // adds to counter
+        Destroy(gameObject);
+        FindObjectOfType<CoinCount>().coinsCollected += 1; // adds to counter
 
-        // play sound
+        FindObjectOfType<AudioManager>().Play(RandomCoin());
+    }
+
+    string RandomCoin()
+    {
+        string CoinCollectSound = "CoinCollect"; // the worded name of the coincollect sound without its number - needs to change if naming convention changes
+        int num = (int)Random.Range(1f, 2.9f); // chooses a random coincollect sound from 8
+
+        CoinCollectSound += num; // adds the number to the string to get a coincollect sound
+
+        return CoinCollectSound;
     }
 }

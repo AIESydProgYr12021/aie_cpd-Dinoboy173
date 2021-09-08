@@ -9,6 +9,7 @@ TagManager:
   - Menu
   - LevelSelect
   - TouchControls
+  - CoinCount
   layers:
   - Default
   - TransparentFX

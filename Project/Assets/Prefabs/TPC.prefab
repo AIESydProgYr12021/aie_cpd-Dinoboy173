@@ -549,6 +549,7 @@ GameObject:
   - component: {fileID: 4587582572067600373}
   - component: {fileID: 4587582571772951109}
   - component: {fileID: 4587582571772951107}
+  - component: {fileID: 1718609908051170542}
   m_Layer: 0
   m_Name: TPC
   m_TagString: Untagged
@@ -628,16 +629,14 @@ MonoBehaviour:
   controller: {fileID: 4587582571772951109}
   dustRun: {fileID: 4587582573900202622}
   dustLand: {fileID: 8540866704429486009}
+  joystick: {fileID: 0}
   speed: 5.2
   speedBoost: 0.15
   defaultSpeed: 5.2
   gravity: -9.81
-  jump1Height: 1.5
-  jump2Height: 2.3
-  jump3Height: 3
   maxAcceleration: 0.7
   acceleration: 0.5
-  drag: 5
+  drag: 1.5
   footstepTimer: 0.09
   footstepTimerReset: 0.07
   groundCheck: {fileID: 4587582572500019643}
@@ -645,9 +644,24 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  x: 0
+  z: 0
   jumpTimer: 0.5
   jumpTimerReset: 0.5
-  velocity: {x: 0, y: 0, z: 0}
+  jumps: 0
+--- !u!114 &1718609908051170542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4587582572058232207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac92e1d10128ce4489ad28d5b55f6a74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlive: 1
 --- !u!1 &4587582572058232225
 GameObject:
   m_ObjectHideFlags: 0
@@ -2296,6 +2310,8 @@ MonoBehaviour:
   mouseSensitivity: 150
   playerBody: {fileID: 4587582572058007663}
   cameraPivot: {fileID: 4587582573207405939}
+  touchTurnSpeed: 2
+  joystick: {fileID: 0}
 --- !u!1001 &1001072515491671269
 PrefabInstance:
   m_ObjectHideFlags: 0

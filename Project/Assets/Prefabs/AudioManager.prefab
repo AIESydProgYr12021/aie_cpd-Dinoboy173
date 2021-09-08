@@ -84,13 +84,23 @@ MonoBehaviour:
     volume: 0.3
     pitch: 0.5
     source: {fileID: 0}
-  - name: Fall1
+  - name: Landing1
     clip: {fileID: 8300000, guid: d6f393c89fc116e4b91c8cb33f90681a, type: 3}
     volume: 0.3
     pitch: 0.5
     source: {fileID: 0}
-  - name: Fall2
+  - name: Landing2
     clip: {fileID: 8300000, guid: 3f62053eee2c21441b9d21d85fc820df, type: 3}
+    volume: 0.3
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: CoinCollect1
+    clip: {fileID: 8300000, guid: 3342d970060efe142b7ede48f200a924, type: 3}
+    volume: 0.3
+    pitch: 0.5
+    source: {fileID: 0}
+  - name: CoinCollect2
+    clip: {fileID: 8300000, guid: 258ca2c0b4c01434cb423abd5e478e6d, type: 3}
     volume: 0.3
     pitch: 0.5
     source: {fileID: 0}
