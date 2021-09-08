@@ -109,4 +109,11 @@ public class Buttons : MonoBehaviour
 
         canvas.enabled = true;
     }
+
+    private void Update()
+    {
+        var scenes = SceneManager.sceneCount;
+
+        Debug.Log(scenes);
+    }
 }

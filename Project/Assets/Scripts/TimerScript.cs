@@ -7,20 +7,22 @@ using TMPro;
 public class TimerScript : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
-    public float startTime = 300f;
+    public float startTime = 60f;
 
     string seconds = "";
     int secondsLength = 0;
     int additionZeros = 0;
 
+    float t = 0f;
+
     private void Start()
     {
-        float t = startTime;
+        t = startTime;
     }
 
     void Update()
     {
-        float t = startTime - Time.time; // counts down
+        t -= Time.deltaTime; // counts down
         if (t > 0)
         {
             seconds = (t).ToString("f0");

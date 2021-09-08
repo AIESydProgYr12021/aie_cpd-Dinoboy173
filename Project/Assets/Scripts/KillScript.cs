@@ -4,14 +4,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class Spawn : MonoBehaviour
+public class KillScript : MonoBehaviour
 {
     public Player player;
-
-    void Start()
-    {
-        player.transform.position = transform.position;
-    }
 
     void Update()
     {
@@ -21,5 +16,10 @@ public class Spawn : MonoBehaviour
 
             SceneManager.LoadScene(sceneName: currentScene);
         }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        player.isAlive = false;
     }
 }
