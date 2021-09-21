@@ -5,9 +5,11 @@ using UnityEngine;
 public class LevelStart : MonoBehaviour
 {
     public Player player;
+    public ParticleSystem dustLand;
 
     void Start()
     {
+        dustLand.Stop();
         player.transform.position = transform.position;
     }
 }

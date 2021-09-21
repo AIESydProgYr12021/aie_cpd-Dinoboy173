@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class EndLevel : MonoBehaviour
 {
-    private Canvas canvas = null;
-
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("End Level");

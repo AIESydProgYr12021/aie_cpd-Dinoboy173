@@ -113,7 +113,5 @@ public class Buttons : MonoBehaviour
     private void Update()
     {
         var scenes = SceneManager.sceneCount;
-
-        Debug.Log(scenes);
     }
 }

@@ -236,6 +236,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isAlive: 1
+--- !u!198 &229428824 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8540866704429486009, guid: 0d1bfdc2b8d53ec4f95ab87244274f55, type: 3}
+  m_PrefabInstance: {fileID: 229428821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &354788991 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3284078285010665877, guid: ec5090dd4cb82974fa5f3bc354a71b3e, type: 3}
@@ -599,6 +604,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 229428823}
+    - target: {fileID: 453007493889835207, guid: b2e0b8558b560134ba44e2149a6268dc, type: 3}
+      propertyPath: dustLand
+      value: 
+      objectReference: {fileID: 229428824}
     - target: {fileID: 453007493889835225, guid: b2e0b8558b560134ba44e2149a6268dc, type: 3}
       propertyPath: m_Name
       value: KillZone
@@ -1492,11 +1501,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3310644498565570319, guid: a2744e14f3e0baa41a23334daad10e46, type: 3}
       propertyPath: MK
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3310644498565570319, guid: a2744e14f3e0baa41a23334daad10e46, type: 3}
       propertyPath: touch
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3310644498565570319, guid: a2744e14f3e0baa41a23334daad10e46, type: 3}
       propertyPath: virtualJump
@@ -1649,6 +1658,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5079146489632574568, guid: 9ef85cb97a1a07b468a327bc5b24f93a, type: 3}
+      propertyPath: dustLand
+      value: 
+      objectReference: {fileID: 229428824}
     - target: {fileID: 5079146489632574568, guid: 9ef85cb97a1a07b468a327bc5b24f93a, type: 3}
       propertyPath: startTime
       value: 5

@@ -76,6 +76,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isMK = FindObjectOfType<InputType>().MK;
         isTouch = FindObjectOfType<InputType>().touch; // gets bools from another script
+        var GUI = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>();
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); // if player is on ground
 
@@ -89,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
             dustRun.Play();
         }
 
-        if (isMK)
+        if (isMK && GUI.enabled)
         {
             movingX = Input.GetAxis("Horizontal");
             movingZ = Input.GetAxis("Vertical"); // keyboard x and z input
@@ -298,7 +299,7 @@ public class PlayerMovement : MonoBehaviour
             footstepTimer = footstepTimerReset; // reset timer
         }
 
-        if (!isGrounded) // stop playing if in air
+        if (movingY) // stop playing if in air
         {
             FindObjectOfType<AudioManager>().Stop();
         }

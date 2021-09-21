@@ -401,6 +401,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2130702085}
+    - target: {fileID: 453007493889835207, guid: b2e0b8558b560134ba44e2149a6268dc, type: 3}
+      propertyPath: dustLand
+      value: 
+      objectReference: {fileID: 2130702086}
     - target: {fileID: 453007493889835225, guid: b2e0b8558b560134ba44e2149a6268dc, type: 3}
       propertyPath: m_Name
       value: KillZone
@@ -2197,6 +2201,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1831971292 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7815933592620887698, guid: ec5090dd4cb82974fa5f3bc354a71b3e, type: 3}
+  m_PrefabInstance: {fileID: 1831971276}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1831971280}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7c51688bb54664f8e4b068e2eab22b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1884775315
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,6 +2404,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5079146489632574568, guid: 9ef85cb97a1a07b468a327bc5b24f93a, type: 3}
+      propertyPath: dustLand
+      value: 
+      objectReference: {fileID: 2130702086}
     - target: {fileID: 5079146489632574569, guid: 9ef85cb97a1a07b468a327bc5b24f93a, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -2446,6 +2465,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4587582571772951107, guid: 0d1bfdc2b8d53ec4f95ab87244274f55, type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 1831971292}
     - target: {fileID: 4587582572058007663, guid: 0d1bfdc2b8d53ec4f95ab87244274f55, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -2512,6 +2535,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac92e1d10128ce4489ad28d5b55f6a74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!198 &2130702086 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 8540866704429486009, guid: 0d1bfdc2b8d53ec4f95ab87244274f55, type: 3}
+  m_PrefabInstance: {fileID: 2130702084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!33 &197177550601419133
 MeshFilter:
   m_ObjectHideFlags: 0

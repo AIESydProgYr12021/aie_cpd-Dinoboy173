@@ -625,6 +625,9 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 8
+  wallCheckStart: {fileID: 0}
+  wallCheckEnd: {fileID: 0}
+  wallDistance: 1
   x: 0
   z: 0
   jumpTimer: 0.5
@@ -2238,7 +2241,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4587582573255407966}
   m_LocalRotation: {x: 0.1564345, y: 0, z: 0, w: 0.98768836}
-  m_LocalPosition: {x: 0, y: 0.69, z: -2.75}
+  m_LocalPosition: {x: 0, y: 1.02, z: -3.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4587582573207405940}
