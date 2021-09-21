@@ -1492,11 +1492,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3310644498565570319, guid: a2744e14f3e0baa41a23334daad10e46, type: 3}
       propertyPath: MK
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3310644498565570319, guid: a2744e14f3e0baa41a23334daad10e46, type: 3}
       propertyPath: touch
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3310644498565570319, guid: a2744e14f3e0baa41a23334daad10e46, type: 3}
       propertyPath: virtualJump
