@@ -16,24 +16,21 @@ public class GameCursor : MonoBehaviour
         {
             Cursor.lockState = CursorLockMode.Locked;
         }
-
-        canvas = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>(); // gets canvas
     }
 
     void Update()
     {
-        isMK = FindObjectOfType<InputType>().MK; // gets bool from another script
+        isMK = FindObjectOfType<InputType>().MK;
 
-        if (isMK)
+        canvas = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>();
+
+        if (canvas.enabled == true && isMK)
         {
-            if (canvas.enabled == true)
-            {
-                Cursor.lockState = CursorLockMode.Locked; // if GUI is enabled lock cursor
-            }
-            else
-            {
-                Cursor.lockState = CursorLockMode.Confined; // if GUI isn't enabled confine cursor
-            }
+            Cursor.lockState = CursorLockMode.Locked; // if GUI is enabled lock cursor
+        }
+        else if (canvas.enabled == false)
+        {
+            Cursor.lockState = CursorLockMode.None; // if GUI isn't enabled confine cursor
         }
     }
 }

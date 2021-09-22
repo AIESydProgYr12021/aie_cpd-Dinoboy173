@@ -8,6 +8,7 @@ public class TimerScript : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
     public float startTime = 60f;
+    public Player player;
 
     string seconds = "";
     int secondsLength = 0;
@@ -40,7 +41,7 @@ public class TimerScript : MonoBehaviour
 
         if (t <= 0)
         {
-            //straight up fucking dies
+            player.isAlive = false;
         }
     }
 }

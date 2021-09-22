@@ -19,17 +19,20 @@ public class MouseLook : MonoBehaviour
 
     bool isMK;
     bool isTouch;
+    bool isController;
 
     private void Start()
     {
         isMK = FindObjectOfType<InputType>().MK;
         isTouch = FindObjectOfType<InputType>().touch; // gets bool from another script
+        isController = FindObjectOfType<InputType>().controller;
     }
 
     void Update()
     {
         isMK = FindObjectOfType<InputType>().MK;
         isTouch = FindObjectOfType<InputType>().touch; // gets bools from another script
+        isController = FindObjectOfType<InputType>().controller;
 
         if (isMK)
         {
@@ -41,6 +44,12 @@ public class MouseLook : MonoBehaviour
         {
             mouseX = joystick.Direction.x * touchTurnSpeed;
             mouseY = -joystick.Direction.z * touchTurnSpeed; // touch x and y input
+        }
+
+        if (isController)
+        {
+            mouseX = 0;
+            mouseY = 0;
         }
 
         xRotation -= mouseY; // up down

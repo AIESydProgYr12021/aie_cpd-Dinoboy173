@@ -15,9 +15,9 @@ public class PlayerMovement : MonoBehaviour
     public float speedBoost = 0.4f;
     public float defaultSpeed = 5.2f;
 
-    public float gravity = -9.81f;
+    float gravity = -9.81f;
 
-    public Dictionary<int, float> jumpHeight = new Dictionary<int, float>();
+    Dictionary<int, float> jumpHeight = new Dictionary<int, float>();
 
     public float maxAcceleration = 0.8f;
     public float acceleration = 0.6f;
@@ -30,8 +30,8 @@ public class PlayerMovement : MonoBehaviour
     public float groundDistance = 0.4f;
     public LayerMask groundMask;
 
-    public float x;
-    public float z;
+    float x;
+    float z;
 
     float movingX;
     float movingZ;
@@ -43,7 +43,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpTimer = 0.0f;
     public float jumpTimerReset = 0.7f;
 
-    public int jumps = 0;
+    int jumps = 0;
     int maxJumps = 3;
 
     Vector3 velocity;
@@ -56,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
     bool isMK;
     bool isTouch;
+    bool isController;
 
     private void Start()
     {
@@ -66,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
 
         isMK = FindObjectOfType<InputType>().MK;
         isTouch = FindObjectOfType<InputType>().touch; // gets bool from another script
+        isController = FindObjectOfType<InputType>().controller;
 
         jumpHeight.Add(0, 1.5f);
         jumpHeight.Add(1, 2f);
@@ -76,6 +78,8 @@ public class PlayerMovement : MonoBehaviour
     {
         isMK = FindObjectOfType<InputType>().MK;
         isTouch = FindObjectOfType<InputType>().touch; // gets bools from another script
+        isController = FindObjectOfType<InputType>().controller;
+
         var GUI = GameObject.FindGameObjectWithTag("Game").GetComponent<Canvas>();
 
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); // if player is on ground
@@ -90,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
             dustRun.Play();
         }
 
-        if (isMK && GUI.enabled)
+        if (isMK || isController && GUI.enabled)
         {
             movingX = Input.GetAxis("Horizontal");
             movingZ = Input.GetAxis("Vertical"); // keyboard x and z input

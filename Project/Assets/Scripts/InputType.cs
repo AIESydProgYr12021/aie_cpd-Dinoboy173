@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class InputType : MonoBehaviour
 {
@@ -13,6 +14,22 @@ public class InputType : MonoBehaviour
     public GameObject lookJoystick = null;
     public GameObject virtualJump = null;
     public GameObject virtualPause = null;
+
+    private void Start()
+    {
+        int controllerInt = PlayerPrefs.GetInt("controller", 0);
+        int MKInt = PlayerPrefs.GetInt("PC", 0);
+        int touchInt = PlayerPrefs.GetInt("android", 0);
+
+        MK = Convert.ToBoolean(MKInt);
+        touch = Convert.ToBoolean(touchInt);
+
+        if (!touch)
+        {
+            MK = !Convert.ToBoolean(controllerInt);
+            controller = Convert.ToBoolean(controllerInt);
+        }
+    }
 
     void Update()
     {

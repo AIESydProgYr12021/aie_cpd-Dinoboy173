@@ -1396,11 +1396,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3310644498565570319, guid: a2744e14f3e0baa41a23334daad10e46, type: 3}
       propertyPath: MK
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3310644498565570319, guid: a2744e14f3e0baa41a23334daad10e46, type: 3}
       propertyPath: touch
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3310644498565570319, guid: a2744e14f3e0baa41a23334daad10e46, type: 3}
       propertyPath: controller
@@ -1921,6 +1921,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1418585770701297811, guid: ec5090dd4cb82974fa5f3bc354a71b3e, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 2130702085}
     - target: {fileID: 1418585770701297811, guid: ec5090dd4cb82974fa5f3bc354a71b3e, type: 3}
       propertyPath: startTime
       value: 10
