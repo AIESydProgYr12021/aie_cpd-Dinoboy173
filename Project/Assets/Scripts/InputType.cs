@@ -33,11 +33,6 @@ public class InputType : MonoBehaviour
 
     void Update()
     {
-        if (MK)
-        {
-
-        }
-
         if (touch) // enables touch controllers if touch
         {
             moveJoystick.gameObject.SetActive(true);
@@ -51,11 +46,6 @@ public class InputType : MonoBehaviour
             lookJoystick.gameObject.SetActive(false);
             virtualJump.gameObject.SetActive(false);
             virtualPause.gameObject.SetActive(false);
-        }
-
-        if (controller)
-        {
-            
         }
     }
 }
