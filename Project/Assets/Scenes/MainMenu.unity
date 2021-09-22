@@ -646,11 +646,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5722611180368924698, guid: cb1ba226aaa82a14882652d3be12afd6, type: 3}
       propertyPath: web
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5722611180368924698, guid: cb1ba226aaa82a14882652d3be12afd6, type: 3}
       propertyPath: android
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6731170881821743126, guid: cb1ba226aaa82a14882652d3be12afd6, type: 3}
       propertyPath: m_text
