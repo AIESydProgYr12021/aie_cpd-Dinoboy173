@@ -693,11 +693,11 @@ PlayerSettings:
   m_MobileRenderingPath: 1
   metroPackageName: Template3D
   metroPackageVersion: 1.0.0.0
-  metroCertificatePath: 
+  metroCertificatePath: C:\Users\dinob\OneDrive\Desktop\AIE\Crossplatform Development\aie_cpd-Dinoboy173\Project\Assets\WSATestCertificate.pfx
   metroCertificatePassword: 
-  metroCertificateSubject: 
-  metroCertificateIssuer: 
-  metroCertificateNotAfter: 0000000000000000
+  metroCertificateSubject: DefaultCompany
+  metroCertificateIssuer: DefaultCompany
+  metroCertificateNotAfter: 80d25fe620d0d801
   metroApplicationDescription: Template_3D
   wsaImages: {}
   metroTileShortName: Project
